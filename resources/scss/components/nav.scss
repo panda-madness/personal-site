@@ -1,0 +1,16 @@
+@use "../utilities/sizing";
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    .nav-links {
+        & > * + * {
+            margin-left: sizing.size(8);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

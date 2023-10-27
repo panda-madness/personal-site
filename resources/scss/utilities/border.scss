@@ -1,0 +1,25 @@
+@use "sizing";
+
+@mixin radius($k) {
+    border-radius: sizing.size($k);
+}
+
+@mixin width($k: 1) {
+    border-width: sizing.$base * $k;
+}
+
+@mixin width-l($k: 1) {
+    border-left-width: sizing.$base * $k;
+}
+
+@mixin width-r($k: 1) {
+    border-right-width: sizing.$base * $k;
+}
+
+@mixin width-t($k: 1) {
+    border-top-width: sizing.$base * $k;
+}
+
+@mixin width-b($k: 1) {
+    border-bottom-width: sizing.$base * $k;
+}

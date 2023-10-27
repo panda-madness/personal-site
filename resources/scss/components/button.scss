@@ -1,0 +1,17 @@
+@use "../utilities/sizing";
+@use "../utilities/border";
+
+button, .button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include border.radius(8);
+
+    &.primary {
+        background-color: #000;
+        color: white;
+        padding-block: sizing.size(3);
+        padding-inline: sizing.size(6);
+    }
+}
