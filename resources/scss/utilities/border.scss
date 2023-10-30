@@ -1,25 +1,25 @@
-@use "sizing";
+@use "spacing";
 
 @mixin radius($k) {
-    border-radius: sizing.size($k);
+    border-radius: spacing.size($k);
 }
 
 @mixin width($k: 1) {
-    border-width: sizing.$base * $k;
+    border-width: spacing.$base * $k;
 }
 
 @mixin width-l($k: 1) {
-    border-left-width: sizing.$base * $k;
+    border-left-width: spacing.$base * $k;
 }
 
 @mixin width-r($k: 1) {
-    border-right-width: sizing.$base * $k;
+    border-right-width: spacing.$base * $k;
 }
 
 @mixin width-t($k: 1) {
-    border-top-width: sizing.$base * $k;
+    border-top-width: spacing.$base * $k;
 }
 
 @mixin width-b($k: 1) {
-    border-bottom-width: sizing.$base * $k;
+    border-bottom-width: spacing.$base * $k;
 }

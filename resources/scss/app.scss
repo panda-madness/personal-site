@@ -1,21 +1,25 @@
 @use "utilities/breakpoints";
-@use "utilities/sizing";
+@use "utilities/spacing";
+@use "utilities/typography";
 
 @use "components/gradient";
 @use "components/page";
 @use "components/nav";
 @use "components/button";
 
+@use "pages/home";
+
 @import "modern-normalize/modern-normalize.css";
 
+
 :root {
-    --sizing-base: sizing.$base;
+    --spacing-base: spacing.$base;
 }
 
 main {
     position: relative;
     z-index: 1;
-    padding-top: sizing.size(16);
+    padding-top: spacing.size(16);
 }
 
 .container {

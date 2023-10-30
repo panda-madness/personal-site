@@ -1,3 +1,38 @@
+@use "sass:map";
+@use "../utilities/colors";
+
+//$_colors: (
+//    bg: #cae9e3,
+//    color-1: #cae9e3,
+//    color-2: #b5cde6,
+//    color-3: #f8e3e3,
+//    color-4: #fffae7,
+//);
+
+//$_colors: (
+//    bg: #001C00,
+//    color-1: #334433,
+//    color-2: #556655,
+//    color-3: #FFFFAA,
+//    color-4: #CC4444,
+//);
+
+//$_colors: (
+//    bg: #262625,
+//    color-1: #D97925,
+//    color-2: #8C6542,
+//    color-3: #D9AA8F,
+//    color-4: #593D3B,
+//);
+
+$_colors: (
+    bg: colors.$background,
+    color-1: map.get(colors.$accents, 100),
+    color-2: map.get(colors.$accents, 200),
+    color-3: map.get(colors.$accents, 300),
+    color-4: map.get(colors.$accents, 400),
+);
+
 .gradient {
     position: fixed;
     z-index: 0;
@@ -5,7 +40,7 @@
     height: 100vh;
     width: 100vw;
 
-    background-color: #cae9e3;
+    background-color: map.get($_colors, bg);
 
     &:after {
         position: absolute;
@@ -38,7 +73,7 @@
         }
 
         span:nth-child(1) {
-            background-color: #cae9e3;
+            background-color: map.get($_colors, color-1);
             left: 0;
             top: -17vh;
             width: 55vw;
@@ -47,7 +82,7 @@
         }
 
         span:nth-child(2) {
-            background-color: #b5cde6;
+            background-color: map.get($_colors, color-2);
             top: 0;
             right: -45vw;
             width: 120vw;
@@ -56,24 +91,24 @@
         }
 
         span:nth-child(3) {
-            background-color: #f8e3e3;
+            background-color: map.get($_colors, color-3);
             top: -20%;
             right: -40%;
             width: 45vw;
             height: 200vh;
 
-            animation: rotate-gradient 25s linear infinite;
+            animation: rotate-gradient 35s linear infinite;
         }
 
         span:nth-child(4) {
-            background-color: #fffae7;
+            background-color: map.get($_colors, color-4);
 
             top: -15%;
             left: -15%;
             width: 45vw;
             height: 200vh;
 
-            animation: rotate-gradient 28s linear infinite;
+            animation: rotate-gradient 42s linear infinite;
         }
 
         @keyframes rotate-gradient {

@@ -1,0 +1,18 @@
+@use "../utilities/colors";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300&display=swap');
+
+$heading-font: 'Playfair Display', serif;
+$body-font: 'Raleway', serif;
+
+:root {
+    --font-heading: #{$heading-font};
+    --font-body: #{$body-font};
+    --colors-copy: #{colors.$copy};
+}
+
+html, body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--colors-copy);
+}

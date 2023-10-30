@@ -1,5 +1,9 @@
-@use "../utilities/sizing";
+@use "sass:color";
+@use "sass:map";
+
+@use "../utilities/spacing";
 @use "../utilities/border";
+@use "../utilities/colors";
 
 button, .button {
     border: none;
@@ -9,9 +13,18 @@ button, .button {
     @include border.radius(8);
 
     &.primary {
-        background-color: #000;
-        color: white;
-        padding-block: sizing.size(3);
-        padding-inline: sizing.size(6);
+        background-color: map.get(colors.$accents, 400);
+        color: var(--colors-copy);
+        padding-block: spacing.size(3);
+        padding-inline: spacing.size(6);
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0);
+
+        transition: background-color 150ms, transform 150ms, box-shadow 150ms;
+
+        &:hover {
+            background-color: color.adjust(map.get(colors.$accents, 400), $lightness: 5%);
+            transform: translateY(spacing.size(-1));
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
     }
 }

@@ -1,0 +1,30 @@
+@use "../utilities/spacing";
+
+.hero {
+    padding-top: spacing.size(16);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    h1 {
+        font-family: var(--font-heading);
+        font-size: 8rem;
+        font-weight: 700;
+        letter-spacing: -4px;
+        line-height: 1;
+        margin-inline: auto;
+        margin-top: 0;
+        margin-bottom: spacing.size(8);
+        max-width: 70%;
+    }
+
+    h2 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        max-width: 50%;
+    }
+}

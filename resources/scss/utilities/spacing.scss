@@ -1,0 +1,29 @@
+$base: 4px;
+
+@function size($k: 1) {
+    @return $base * $k;
+}
+
+@mixin p-x($k: 1) {
+    padding-inline: size($k);
+}
+
+@mixin p-y($k: 1) {
+    padding-block: size($k);
+}
+
+@mixin p($k: 1) {
+    padding: size($k);
+}
+
+@mixin m-x($k: 1) {
+    margin-inline: size($k);
+}
+
+@mixin m-y($k: 1) {
+    margin-block: size($k);
+}
+
+@mixin m($k: 1) {
+    margin: size($k);
+}
