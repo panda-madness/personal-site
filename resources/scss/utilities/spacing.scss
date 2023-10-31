@@ -1,29 +1,41 @@
 $base: 4px;
 
-@function size($k: 1) {
+@function value($k: 1) {
     @return $base * $k;
 }
 
 @mixin p-x($k: 1) {
-    padding-inline: size($k);
+    padding-inline: value($k);
 }
 
 @mixin p-y($k: 1) {
-    padding-block: size($k);
+    padding-block: value($k);
 }
 
 @mixin p($k: 1) {
-    padding: size($k);
+    padding: value($k);
 }
 
 @mixin m-x($k: 1) {
-    margin-inline: size($k);
+    margin-inline: value($k);
 }
 
 @mixin m-y($k: 1) {
-    margin-block: size($k);
+    margin-block: value($k);
 }
 
 @mixin m($k: 1) {
-    margin: size($k);
+    margin: value($k);
+}
+
+@mixin space-x($k: 1) {
+    & > * + * {
+        margin-left: value($k);
+    }
+}
+
+@mixin space-y($k: 1) {
+    & > * + * {
+        margin-top: value($k);
+    }
 }

@@ -9,7 +9,7 @@
             color.adjust(colors.$background, $alpha: -0.7) 0,
             color.adjust(colors.$background, $alpha: -0.5) 30vh,
             color.adjust(colors.$background, $alpha: -0.2) 40vh,
-            colors.$background 60vh,
+            color.adjust(colors.$background, $alpha: -0.1) 60vh,
     );
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }

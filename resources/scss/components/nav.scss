@@ -5,8 +5,10 @@ nav {
     justify-content: space-between;
 
     .nav-links {
+        margin-left: auto;
+
         & > * + * {
-            margin-left: spacing.size(8);
+            margin-left: spacing.value(8);
         }
 
         a {

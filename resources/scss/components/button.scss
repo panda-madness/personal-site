@@ -5,26 +5,38 @@
 @use "../utilities/border";
 @use "../utilities/colors";
 
+$bg: color.adjust(map.get(colors.$accents, 400), $alpha: -0.4);
+
 button, .button {
     border: none;
     background-color: transparent;
     cursor: pointer;
 
-    @include border.radius(8);
+    border-radius: spacing.value(8);
 
     &.primary {
-        background-color: map.get(colors.$accents, 400);
+        background-color: $bg;
         color: var(--colors-copy);
-        padding-block: spacing.size(3);
-        padding-inline: spacing.size(6);
+        padding-block: spacing.value(3);
+        padding-inline: spacing.value(6);
         box-shadow: 0 0 7px rgba(0, 0, 0, 0);
 
         transition: background-color 150ms, transform 150ms, box-shadow 150ms;
 
         &:hover {
-            background-color: color.adjust(map.get(colors.$accents, 400), $lightness: 5%);
-            transform: translateY(spacing.size(-1));
+            background-color: color.adjust($bg, $alpha: 0.2);
+            transform: translateY(spacing.value(-1));
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
+    }
+
+    &.large {
+        padding-block: spacing.value(4);
+        padding-inline: spacing.value(8);
+        font-size: 1.5rem;
+    }
+
+    &.bold {
+        font-weight: 600;
     }
 }

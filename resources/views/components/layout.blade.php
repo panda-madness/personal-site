@@ -1,3 +1,5 @@
+@props(['bodyClass' => ''])
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -8,7 +10,7 @@
     <title>Margulan Baimbet | Web Developer</title>
     @vite('resources/scss/app.scss')
 </head>
-<body>
+<body class="{{ $bodyClass }}">
 <main>
     {{ $slot }}
 </main>

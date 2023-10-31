@@ -1,7 +1,12 @@
+@use "sass:color";
 @use "../utilities/spacing";
+@use "../utilities/colors";
 
-.hero {
-    padding-top: spacing.size(16);
+body.home section {
+    padding-block: spacing.value(16);
+}
+
+section.hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,14 +16,14 @@
 
     h1 {
         font-family: var(--font-heading);
-        font-size: 8rem;
+        font-size: 6rem;
         font-weight: 700;
         letter-spacing: -4px;
         line-height: 1;
         margin-inline: auto;
         margin-top: 0;
-        margin-bottom: spacing.size(8);
-        max-width: 70%;
+        margin-bottom: spacing.value(8);
+        max-width: 90%;
     }
 
     h2 {
@@ -26,5 +31,32 @@
         font-size: 1.5rem;
         line-height: 1.8;
         max-width: 50%;
+        color: color.adjust(colors.$copy, $lightness: -15%);
+        margin-bottom: spacing.value(12);
+    }
+}
+
+section.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: spacing.value(8);
+}
+
+section.work {
+    .section-title {
+        margin-bottom: spacing.value(8);
+    }
+
+    & > h4 {
+        font-size: 3rem;
+        font-family: var(--font-heading);
+        margin: 0 0 spacing.value(10);
+    }
+
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: spacing.value(10);
     }
 }

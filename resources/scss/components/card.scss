@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '../utilities/colors';
+@use '../utilities/spacing';
+@use '../utilities/border';
+
+$bg: map.get(colors.$accents, 100);
+
+.card {
+    padding: spacing.value(8);
+    background-color: color.adjust($bg, $alpha: -0.6);
+    border-radius: map.get(border.$radius-scale, base);
+
+    .card-title {
+        font-weight: 400;
+        font-size: 1.5rem;
+        margin-bottom: spacing.value(6);
+    }
+
+    .card-content {
+        line-height: 1.5;
+        font-size: 1rem;
+        color: color.adjust(colors.$copy, $lightness: -20%);
+    }
+}

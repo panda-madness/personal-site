@@ -1,0 +1,66 @@
+@use "sass:map";
+@use "sass:color";
+@use "../utilities/spacing";
+@use "../utilities/border";
+@use "../utilities/colors";
+
+.portfolio-item {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 10%;
+    grid-template-areas:
+        "preview preview"
+        "title category";
+
+    & > .item-preview {
+        grid-area: preview;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background-color: map.get(colors.$accents, 300);
+        @include border.radius();
+
+        & > img {
+            display: block;
+            margin-inline: auto;
+            max-width: 70%;
+            height: auto;
+
+            transform: translateY(100px) scale(1);
+            transition: transform 300ms, box-shadow 300ms;
+            box-shadow: 0 0 50px rgb(0, 0, 0, 0);
+            @include border.radius();
+            overflow: hidden;
+        }
+    }
+
+    &.light > .item-preview {
+        background-color: map.get(colors.$accents, 400);
+    }
+
+    &:hover > .item-preview > img {
+        transform: translateY(80px) scale(1.05);
+        box-shadow: 0 0 50px rgb(0, 0, 0, 0.3);
+    }
+
+    & > .item-title {
+        grid-area: title;
+        padding-top: spacing.value(8);
+        margin-bottom: spacing.value(4);
+        font-size: 1.25rem;
+    }
+
+    & > .item-category {
+        grid-area: category;
+        padding-top: spacing.value(8);
+        margin-bottom: spacing.value(4);
+
+        & > span {
+            font-size: 0.875rem;
+            padding-inline: spacing.value(4);
+            padding-block: spacing.value(1);
+            border: 1px solid colors.$copy;
+            @include border.radius("2xl");
+        }
+    }
+}
