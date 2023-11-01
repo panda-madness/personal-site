@@ -1,0 +1,20 @@
+@use 'sass:color';
+@use '../utilities/spacing';
+
+section {
+    & > .section-title {
+        padding-bottom: spacing.value(4);
+        border-bottom: 1px solid color.adjust(white, $lightness: -40%);
+        letter-spacing: 1.5px;
+        margin-bottom: spacing.value(8);
+        font-size: .75rem;
+        text-transform: uppercase;
+    }
+
+    & > .section-heading {
+        font-size: 3rem;
+        font-family: var(--font-heading);
+        font-weight: 400;
+        margin: 0 0 spacing.value(10);
+    }
+}

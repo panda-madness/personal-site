@@ -1,8 +1,0 @@
-@use 'sass:color';
-@use '../utilities/spacing';
-
-.section-title {
-    padding-bottom: spacing.value(4);
-    border-bottom: 1px solid color.adjust(white, $lightness: -40%);
-    letter-spacing: 1px;
-}

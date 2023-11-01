@@ -1,6 +1,10 @@
 @use "sass:color";
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
 @use "../utilities/spacing";
 @use "../utilities/colors";
+@use "../utilities/border";
 
 body.home section {
     padding-block: spacing.value(16);
@@ -42,21 +46,118 @@ section.cards {
     gap: spacing.value(8);
 }
 
+section.about {
+    .about-grid {
+        display: grid;
+        gap: spacing.value(8);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "c1 c2 c3 ."
+            ". c4 c5 c6"
+        ;
+
+        $colors: ('muted', 'lavender', 'blue', 'red', 'yellow', 'green');
+
+        @for $i from 2 through 6 {
+            $colorName: list.nth($colors, $i);
+            $currentColor: map.get(colors.$accents, $colorName);
+
+            & > .card:nth-child(#{$i}) {
+                grid-area: c#{$i};
+                --card-bg-color: #{color.adjust($currentColor, $alpha: -0.1)};
+            }
+        }
+
+        & > .card {
+            aspect-ratio: 1;
+
+            & > .card-footer {
+                font-size: 1.5rem;
+            }
+        }
+
+        & > .about-photo {
+            grid-area: c1;
+            aspect-ratio: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
 section.work {
-    .section-title {
-        margin-bottom: spacing.value(8);
-    }
-
-    & > h4 {
-        font-size: 3rem;
-        font-family: var(--font-heading);
-        margin: 0 0 spacing.value(10);
-    }
-
     .work-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         gap: spacing.value(10);
+    }
+
+    $colors: ('muted', 'lavender', 'blue', 'red', 'yellow', 'green');
+
+    @for $i from 1 through 4 {
+        $current_color: map.get(colors.$accents, list.nth($colors, $i));
+        .portfolio-item:nth-child(#{$i}) {
+            --preview-bg-color: #{color.adjust($current_color, $alpha: -0.1)};
+        }
+    }
+}
+
+section.tech {
+    & > .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: spacing.value(8);
+    }
+
+    .tech-card {
+        padding: spacing.value(8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        @include border.radius();
+
+        $colors: ('muted', 'lavender', 'blue', 'red', 'yellow', 'green');
+
+        @for $i from 1 through 6 {
+            $current_color: map.get(colors.$accents, list.nth($colors, $i));
+            &:nth-child(#{$i}) {
+                background-color: $current_color;
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        span {
+            font-size: 1.5rem;
+        }
+    }
+
+    .tech-description {
+        grid-column: 2 / 5;
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: spacing.value(8);
+            font-family: var(--font-heading);
+            font-weight: 400;
+            font-size: 3rem;
+        }
+
+        p {
+            line-height: 1.7;
+            column-count: 2;
+            column-gap: spacing.value(8);
+        }
     }
 }

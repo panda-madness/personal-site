@@ -1,7 +1,6 @@
 @php use Illuminate\Support\Facades\Vite; @endphp
-@props(['light' => false])
 
-<div {{ $attributes->class(['portfolio-item', 'light' => $light]) }}>
+<div {{ $attributes->class(['portfolio-item']) }}>
     <div class="item-preview">
         <img src="{{ Vite::asset('resources/images/portfolio-preview.png') }}" alt="">
     </div>

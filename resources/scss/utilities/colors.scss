@@ -18,12 +18,45 @@
 //    400: #00F0D3,
 //);
 
-$background: #363B57;
-$copy: white;
+//$_colors: (
+//    bg: #cae9e3,
+//    color-1: #cae9e3,
+//    color-2: #b5cde6,
+//    color-3: #f8e3e3,
+//    color-4: #fffae7,
+//);
+
+//$_colors: (
+//    bg: #001C00,
+//    color-1: #334433,
+//    color-2: #556655,
+//    color-3: #FFFFAA,
+//    color-4: #CC4444,
+//);
+
+//$_colors: (
+//    bg: #262625,
+//    color-1: #D97925,
+//    color-2: #8C6542,
+//    color-3: #D9AA8F,
+//    color-4: #593D3B,
+//);
+
+$background: rgb(202, 233, 227);
+$copy: rgb(23, 23, 23);
+$black: rgb(23, 23, 23);
+
+$muted: rgb(248, 248, 248);
 
 $accents: (
-    100: #5F647A,
-    200: #9FA6CC,
-    300: #7F85A3,
-    400: #BBC3F0,
+    100: rgb(202, 233, 227),
+    200: rgb(181, 205, 230),
+    300: rgb(248, 227, 227),
+    400: rgb(255, 250, 231),
+    'lavender': rgb(246, 243, 252),
+    'blue': rgb(241, 245, 249),
+    'red': rgb(252, 241, 231),
+    'yellow': rgb(255, 250, 231),
+    'green': rgb(240, 250, 248),
+    'muted': rgb(248, 248, 248),
 );

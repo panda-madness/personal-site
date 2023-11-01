@@ -5,7 +5,7 @@
 @use "../utilities/border";
 @use "../utilities/colors";
 
-$bg: color.adjust(map.get(colors.$accents, 400), $alpha: -0.4);
+$bg: colors.$black;
 
 button, .button {
     border: none;
@@ -16,16 +16,17 @@ button, .button {
 
     &.primary {
         background-color: $bg;
-        color: var(--colors-copy);
+        color: color.invert($bg);
         padding-block: spacing.value(3);
         padding-inline: spacing.value(6);
         box-shadow: 0 0 7px rgba(0, 0, 0, 0);
 
         transition: background-color 150ms, transform 150ms, box-shadow 150ms;
+        transform: translateY(0) translateZ(0);
 
         &:hover {
             background-color: color.adjust($bg, $alpha: 0.2);
-            transform: translateY(spacing.value(-1));
+            transform: translateY(spacing.value(-1)) translateZ(0);
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
     }

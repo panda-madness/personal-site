@@ -4,16 +4,22 @@
 @use '../utilities/spacing';
 @use '../utilities/border';
 
-$bg: map.get(colors.$accents, 100);
+$bg: colors.$muted;
 
 .card {
-    padding: spacing.value(8);
-    background-color: color.adjust($bg, $alpha: -0.6);
+    --card-bg-color: #{$bg};
+
+    display: flex;
+    flex-direction: column;
+
+    padding: spacing.value(8) spacing.value(8);
+    background-color: var(--card-bg-color);
     border-radius: map.get(border.$radius-scale, base);
 
     .card-title {
         font-weight: 400;
         font-size: 1.5rem;
+        margin-top: spacing.value(4);
         margin-bottom: spacing.value(6);
     }
 
@@ -21,5 +27,9 @@ $bg: map.get(colors.$accents, 100);
         line-height: 1.5;
         font-size: 1rem;
         color: color.adjust(colors.$copy, $lightness: -20%);
+    }
+
+    .card-footer {
+        margin-top: auto;
     }
 }

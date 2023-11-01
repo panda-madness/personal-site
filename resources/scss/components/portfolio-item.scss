@@ -5,6 +5,8 @@
 @use "../utilities/colors";
 
 .portfolio-item {
+    --preview-bg-color: #{map.get(colors.$accents, 300)};
+
     cursor: pointer;
     display: grid;
     grid-template-columns: 1fr 10%;
@@ -17,7 +19,7 @@
         overflow: hidden;
         width: 100%;
         aspect-ratio: 4 / 3;
-        background-color: map.get(colors.$accents, 300);
+        background-color: var(--preview-bg-color);
         @include border.radius();
 
         & > img {
@@ -26,7 +28,7 @@
             max-width: 70%;
             height: auto;
 
-            transform: translateY(100px) scale(1);
+            transform: translateY(100px) scale(1) translateZ(0);
             transition: transform 300ms, box-shadow 300ms;
             box-shadow: 0 0 50px rgb(0, 0, 0, 0);
             @include border.radius();
@@ -34,12 +36,8 @@
         }
     }
 
-    &.light > .item-preview {
-        background-color: map.get(colors.$accents, 400);
-    }
-
     &:hover > .item-preview > img {
-        transform: translateY(80px) scale(1.05);
+        transform: translateY(80px) scale(1.05) translateZ(0);
         box-shadow: 0 0 50px rgb(0, 0, 0, 0.3);
     }
 

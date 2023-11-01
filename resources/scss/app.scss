@@ -7,7 +7,7 @@
 @use "components/nav";
 @use "components/button";
 @use "components/card";
-@use "components/section-title";
+@use "components/section";
 @use "components/portfolio-item";
 
 @use "pages/home";
@@ -22,7 +22,7 @@
 main {
     position: relative;
     z-index: 1;
-    padding-top: spacing.value(16);
+    padding-block: spacing.value(16);
 }
 
 .container {
